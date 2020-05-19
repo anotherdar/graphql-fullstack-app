@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js -e js",
-    "debug": "nodemon --inspect index.js -e js"
+    "client": "npm start --prefix client",
+    "server": "nodemon index.js -e js",
+    "debug": "nodemon --inspect index.js -e js",
+    "dev": "concurrently \"yarn client\" \"yarn server\""
   },
   "keywords": [],
   "author": "",
@@ -18,6 +20,7 @@
     "mongoose": "^5.9.14"
   },
   "devDependencies": {
+    "concurrently": "^5.2.0",
     "nodemon": "^2.0.4"
   }
 }
