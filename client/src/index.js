@@ -16,14 +16,17 @@ import {ApolloProvider} from 'react-apollo'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 
-const cache = new InMemoryCache();
+const cache = new InMemoryCache({
+  dataIdFromObject: o => o.id,
+  addTypename: true
+});
 const link = new HttpLink({
   uri: "http://localhost:4000/graphql"
 });
 
 const client = new ApolloClient({
   cache,
-  link
+  link,
 });
 
 ReactDOM.render(
