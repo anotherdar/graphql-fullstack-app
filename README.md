@@ -1,6 +1,6 @@
 # GraphQL fullstack app
 
-this is a simple graphql app, using apollo client and react in the client.
+this is a simple graphql app, using apollo client and react in the client side.
 
 ## technologies used
 
@@ -44,7 +44,7 @@ this is a simple graphql app, using apollo client and react in the client.
 ```
 
 
-to install all dependencies run
+to install all dependencies in the server run
 
 ```bash
     npm install 
@@ -53,6 +53,18 @@ or
 
 ```bash
     yarn
+```
+
+to install client side dependencies go
+
+```bash
+    cd /client && npm install
+```
+
+or 
+
+```bash
+    cd /client && yarn
 ```
 
 ## Configuration
@@ -77,4 +89,50 @@ the client side its running on port 3000, to access go to:
     http://localhost:3000
 ```
 
+## Query on the GraphiQL 
 
+simple query to fetch all songs
+```GraphQL
+    query{
+        songs {
+            title
+        }
+    }
+```
+output: 
+
+```json
+    {
+        "data": {
+            "songs": [
+                {
+                    "id": "5ec6dafaa48e0a03f43584e0",
+                    "title": "the song of water"
+                }
+            ]
+        }
+    }
+```
+
+Simple mutation to add a song
+
+```GraphQL
+    mutation {
+        addSong(title: "the song of water") {
+            id
+            title
+        }
+    }
+```
+output:
+
+```json
+    {
+        "data": {
+            "addSong": {
+                "id": "5ec6dafaa48e0a03f43584e0",
+                "title": "the song of water"
+            }
+        }
+    }
+```
